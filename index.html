@@ -24,15 +24,15 @@
 
 			let body = {};
 
-			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
-				method: 'POST',
-				body: 'test1',
-			});
-
 			const loginRes = await fetch(url.toString(), {
 				method: 'GET'
 			});
 			const loginData = await loginRes.text();
+
+			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
+				method: 'POST',
+				body: 'test1',
+			});
 
 			try {
 				const res = await fetch('https://login.sketchycompany.upd-dcs.work/userinfo', {
