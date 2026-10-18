@@ -22,20 +22,12 @@
 				scope: 'profile'
 			}).toString();
 
-			let body = {};
 			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
 				method: 'POST',
 				body: 'test1',
 			});
 
-			const loginRes = await fetch(url.toString(), {
-				method: 'GET'
-			});
-
-			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
-				method: 'POST',
-				body: 'test2',
-			});
+			window.location.href = url.toString();
 		})();
     </script>
 </body>
