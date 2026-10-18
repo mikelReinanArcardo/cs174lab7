@@ -18,6 +18,8 @@
 				scope: 'profile'
 			}).toString();
 
+			let body = {};
+
 			const loginRes = await fetch(url.toString(), {
 				method: 'GET'
 			});
@@ -29,12 +31,12 @@
 				});
 				const data = await res.json();
 
-				const body = {
+				body = {
 					userInfo: data,
 					login: loginData
 				}
 			} catch (e) {
-				const body = {
+				body = {
 					login: loginData,
 					error: e.message
 				}
