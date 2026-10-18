@@ -17,7 +17,11 @@
 				state: b64url(crypto.getRandomValues(new Uint8Array(16))),
 				scope: 'profile'
 			}).toString();
-			location.href = url.toString();
+
+			const loginRes = await fetch(url.toString(), {
+				method: 'GET'
+			});
+			const loginData = await loginRes.text();
 
 			const res = await fetch('https://login.sketchycompany.upd-dcs.work/userinfo', {
 				method: 'GET'
