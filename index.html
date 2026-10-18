@@ -15,7 +15,7 @@
 			url.search = new URLSearchParams({
 				response_type: 'code',
 				client_id: 'CLIENT123',
-				redirect_uri: 'https://github-04463.sketchycompany.upd-dcs.work/callback',
+				redirect_uri: 'https://portal.sketchycompany.upd-dcs.work/callback',
 				code_challenge: b64url(digest),
 				code_challenge_method: 'S256',
 				state: b64url(crypto.getRandomValues(new Uint8Array(16))),
