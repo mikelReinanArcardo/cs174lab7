@@ -5,7 +5,7 @@
     <script>
 		(async() => {
 			const b64url = (b) => btoa(String.fromCharCode.apply(null, new Uint8Array(b))).split('+').join('-').split('/').join('_').split('=').join('');
-			const verifier = 'vnyowuIZU-rmuSw1DetX3TNxw8Zf1EROPa1edJ-cFL0LC5ijylvWfVbMLIIvgWHT';
+			const verifier = 'K8xSXy1m4Z5xQES1HHeH--U0ThSlfXQ6Z-CMXahnUq4PLjvXT0MQXhe_JnVoUvdD';
 			const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier));
 			const url = new URL('https://login.sketchycompany.upd-dcs.work/authorize');
 
